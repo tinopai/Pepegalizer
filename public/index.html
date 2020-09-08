@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Socket.io -->
+        <script src="assets/socket.io.js"></script>
+        <!-- Chart.js and our custom js -->
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+        <script type="text/javascript" src="assets/index.js"></script>
+        <link rel="stylesheet" href="assets/index.css?v=6">
+        <!-- Bootstrap and dependencies -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
+        <!-- Title and meta tags -->
+        <title>Pepegalizer</title>
+
+        <meta name="description" content="Pepegalizer is a real-time Twitch emote usage visualizer">
+
+        <meta name="og:title" content="Pepegalizer">
+        <meta name="og:type" content="website">
+        <meta name="og:description" content="Pepegalizer is a real-time Twitch emote usage visualizer using Socket.IO, Twitch IRC and Chart.js">
+        <meta name="og:url" content="https://api.tino.rest/" />
+        <meta name="og:image" content="https://api.tino.rest/assets/pepegalizer.png">
+        <meta name="theme-color" content="#5C8D37">
+
+        <link rel="icon" type="image/png" href="assets/pepegalizer.png">
+
+        <!-- Viewport -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Change switch image -->
+        <script src="assets/darkModeSwitch.js"></script>
+    </head>
+
+    <body>
+        <!-- Loading... (Devs: FadeOut is in index.js, a line before addnSorted gets replaced by a new one) -->
+        <div class="loading">
+            <div class="" style="margin-left:46%;">
+                <div>
+                    <div class="spinner-border text-primary" role="status" style="width: 64px; height: 64px;">
+                    </div>
+                </div>
+                <div style="margin-left: -25%; margin-top: 5%;">
+                    <h1 class="text-light">Loading</h1>
+                </div>
+            </div>
+        </div>
+
+
+
+        <nav id="navbar" class="navbar navbar-expand-sm navbar-light bg-light mb-6">
+            <div class="container-fluid">
+                <div>
+                    <img src="assets/pepegalizer.png" width="64" height="64">
+                    <a class="navbar-brand">Pepegalizer</a>
+                </div>
+                <div>
+                    <a class="nav-link" href="/stats">API</a>
+                    <a class="nav-link" href="https://github.com/tinopai/pepegalizer">GitHub</a>
+                </div>
+                <div class="nav-link">
+
+                    <div class="form-switch">
+                      <input type="checkbox" class="form-check-input" id="darkSwitch" style="height:30px;width:60px;" autocomplete="off" onclick="darkModeSwitch()">
+                      <label for="darkSwitch"></label>
+                    </div>
+                  </div>
+            </div>
+        </nav>
+        
+        <div class="container-fluid" style="margin-top: 2%;">
+            <div class="text-center">
+                <h3>Real-time emote usage visualizer</h3>
+                <h6>
+                    currently displaying <a href="https://twitch.tv/xQcOW">xQcOW</a>'s stats
+                    <br>
+                    total stats are being counted since: 04-09-2020 1 AM UTC
+                </h6>
+            </div>
+    
+            <div class="row text-center justify-content-center">
+                <div class="text-center" style="height:20vh; width:40vw">
+                    <h4>Top Emotes</h4>
+                        <canvas id="canvas"></canvas>
+                </div>
+                <div class="text-center" style="position: relative; height:20vh; width:40vw">
+                    <h4>Recent Top Emotes</h4>
+                    <canvas id="recentTop"></canvas>
+                </div>
+            </div>
+            <div style="margin-top: 10%;" class="row text-center justify-content-center">
+                <div style="position:relative;height:30vh; width:50vw">
+                    <h4>Random Emotes</h4>
+                        <canvas id="emoteUsage"></canvas>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
