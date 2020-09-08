@@ -1,0 +1,16 @@
+{
+  "name": "twitchirc",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "aes-everywhere": "^1.0.0",
+    "mysql": "^2.18.1",
+    "tmi.js": "^1.5.0"
+  }
+}
